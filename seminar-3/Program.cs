@@ -1,55 +1,36 @@
-﻿//Задача 19: Напишите программу, которая принимает 
-//на вход пятизначное число и проверяет, является ли 
-//оно палиндромом.
+﻿//Задача 21: Напишите программу, которая принимает 
+//на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+//A (3,6,8); B (2,1,-7), -> 15.84
+//A (7,-5, 0); B (1,-1,9) -> 11.53
+//Формула: AB = √((x2 - x1)2 + (y2 - y1)2 + (z2 - z1)2)
 
-void palindrom(int x)
+double ab3Dlength(double arg1, double arg2, double arg3, double arg4, double arg5, double arg6)
 {
-x = Math.Abs (x);
+    double result = Math.Sqrt(Math.Pow(arg2 - arg1, 2) + Math.Pow(arg4 - arg3, 2) + Math.Pow(arg6 - arg5, 2));
 
-int a;
-int b;
-
-if (x < 10000 || x > 99999)
-{
-    System.Console.WriteLine("Prosili vvesti 5ti znachnoe chislo!");
+    return result;
 }
 
-else
-{
-    a = x / 1000;
-    b = x % 100;
+System.Console.Write("x1: ");
+double x1 = double.Parse(Console.ReadLine());
 
-    if (a == b)
-    {
-        System.Console.WriteLine("PALINDROM");
-    }
-    
-    if (a > b)
-    {
-        b = b + 9;
-        if (a == b)
-        {
-            System.Console.WriteLine("PALINDROM");
-        }
-        else
-        System.Console.WriteLine("NE PALINDROM");
-    }
+System.Console.Write("y1: ");
+double y1 = double.Parse(Console.ReadLine());
 
-    if (a < b)
-    {
-        a = a + 9;
-        if (a == b)
-        {
-            System.Console.WriteLine("PALINDROM");
-        }
-        else
-        System.Console.WriteLine("NE PALINDROM");
-    }
-}
-}
+System.Console.Write("z1: ");
+double z1 = double.Parse(Console.ReadLine());
 
-System.Console.Write("Vvedite 5ti znachnoe chislo: ");
-int number = int.Parse(Console.ReadLine());
+System.Console.Write("x2: ");
+double x2 = double.Parse(Console.ReadLine());
 
-palindrom(number);
+System.Console.Write("y2: ");
+double y2 = double.Parse(Console.ReadLine());
 
+System.Console.Write("z2: ");
+double z2 = double.Parse(Console.ReadLine());
+
+double length = ab3Dlength(x1, x2, y1, y2, z1, z2);
+
+//ab3Dlength(x1, x2, y1, y2, z1, z2);
+
+System.Console.WriteLine("Rasstoyaniye: " + Math.Round(length, 2));
