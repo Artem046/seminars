@@ -1,37 +1,55 @@
-﻿//Задача 23: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-//3 -> 1, 8, 27 
-//5 -> 1, 8, 27, 64, 125
+﻿//Задача 19: Напишите программу, которая принимает 
+//на вход пятизначное число и проверяет, является ли 
+//оно палиндромом.
 
-double cubo(double arg)
+void palindrom(int x)
 {
-    arg = Math.Abs(arg);
-    
-    double count = 0;
-    double x = 1;
+x = Math.Abs (x);
 
-    while (x <= arg)
-    {
+int a;
+int b;
 
-        if (x == arg)
-        {
-            count = Math.Pow(x, 3);
-
-            System.Console.Write(count);
-
-            break;
-        }
-
-        count = Math.Pow(x, 3);
-
-        System.Console.Write($"{count}, ");
-
-        x++;
-    }
-    return count;
+if (x < 10000 || x > 99999)
+{
+    System.Console.WriteLine("Prosili vvesti 5ti znachnoe chislo!");
 }
 
-System.Console.Write("Vvedite chislo N: ");
-double n = double.Parse(Console.ReadLine());
+else
+{
+    a = x / 1000;
+    b = x % 100;
 
-cubo(n);
+    if (a == b)
+    {
+        System.Console.WriteLine("PALINDROM");
+    }
+    
+    if (a > b)
+    {
+        b = b + 9;
+        if (a == b)
+        {
+            System.Console.WriteLine("PALINDROM");
+        }
+        else
+        System.Console.WriteLine("NE PALINDROM");
+    }
+
+    if (a < b)
+    {
+        a = a + 9;
+        if (a == b)
+        {
+            System.Console.WriteLine("PALINDROM");
+        }
+        else
+        System.Console.WriteLine("NE PALINDROM");
+    }
+}
+}
+
+System.Console.Write("Vvedite 5ti znachnoe chislo: ");
+int number = int.Parse(Console.ReadLine());
+
+palindrom(number);
 
